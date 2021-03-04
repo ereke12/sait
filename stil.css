@@ -1,0 +1,10 @@
+body{
+  height: 2000px;
+}
+img{
+  position: fixed;
+  left: 7%;
+  top: 10%;
+  border-color: green;
+  border: 2px;
+}

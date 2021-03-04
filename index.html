@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+
+    <meta charset="utf-8">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+    <script type="text/javascript" src="app.js"></script>
+    <link rel="stylesheet" href="stil.css">
+    <title></title>
+
+    <script type="text/javascript">
+        // let person;
+        // if(confirm("Are you sure")){
+        //   person = prompt("Hi what's your name?")
+        //   alert("Hello " + person);
+        //   document.write(person);
+        // }
+        function Bclick(btn){
+          alert("Hello" + btn.name + btn.value);
+        }
+        let coun = 0;
+        function counter(element){
+          coun++;
+          element.innerHTML = coun;
+        }
+
+/*----------------------------------------------------------------------------------------------*/
+        function valid(form){
+          let fail = false;
+          let name = form.name.value;
+          let email = form.email.value;
+          let password = form.password.value;
+          let RePassword = form.RePassword.value;
+          let state = form.state.value;
+
+          let adr_pattern = /[0-9a-z_-]+@[0-9a-z_-]+\.[a-z]{2,5}/i;
+          if (name == "" || name == " ")
+            fail = "Вы не вели свое имя";
+          else if (adr_pattern.test(email) == false)
+            fail = "Вы вели email неправильно";
+          else if (password == "")
+            fail = "Вы не вели пароль";
+          else if (password != RePassword)
+            fail = "Пароли не совпадают";
+          else if (state=="")
+            fail = "Укажите пол";
+          if (fail)
+            alert(fail);
+          else {
+            window.location = "http://google.com";
+          }
+        }
+
+/*----------------------------------------------------------------------------------------------*/
+
+       }
+    </script>
+
+</head>
+<body>
+
+    <a href="https://wa.me/+77078026255/?text=%D0%9A%D1%83%D1%80%D1%81%D2%9B%D0%B0%20%D0%B6%D0%B0%D0%B7%D1%8B%D0%BB%D1%83"><img src="C:\Users\User\Desktop\Сайты/whatsapp-glyph-black.svg" width="50px"></a>
+    <input type="button" name=" Btd" value="Click me" onclick="Bclick (this)">
+    <span onclick="counter(this)">0</span>
+    <select class="" name="">
+      <option value="">ss</option>
+      <option value="">s</option>
+    </select><br><br>
+
+      <form action="send.php" method="post" name="test" id="form">
+        <label for="name">Name: </label>
+        <input type="text" name="name" placeholder="Name" id="name"><br><br>
+        <label for="email">Email: </label>
+        <input type="email" name="email" placeholder="Email" id="email"><br><br>
+        <label for="password">Password: </label>
+        <input type="password" name="password" placeholder="Password" id="password"><br><br>
+        <label for="RePassword">RePassword: </label>
+        <input type="password" name="Repassword" placeholder="RePassword" id="RePassword"><br><br>
+        <label >Pol: </label>
+        <input type="radio" name="state" placeholder="Man" id="man">
+        <label for="man">Man</label>
+        <input type="radio" name="state" placeholder="Woman" id="woman">
+        <label for="woman">Woman</label><br><br>
+        <input type="button" onclick="valid(document.getElementById('form'))" name="submit" value="Gotovo">
+      </form>
+
+</body>
+</html>
